@@ -343,7 +343,8 @@ body::after {
 }
 
 .content {
-    max-width: 700px;
+    max-width: 1100px;
+    width: 100%;
 }
 
 .content p {
@@ -726,7 +727,7 @@ caption {
 /* Learnings Grid */
 .learnings-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 24px;
     margin: 60px 0;
 }
@@ -738,7 +739,6 @@ caption {
     padding: 32px;
     position: relative;
     overflow: hidden;
-    transition: all 0.3s ease;
 }
 
 .learning-card::before {
@@ -752,19 +752,8 @@ caption {
     border-radius: 16px;
     z-index: -1;
     opacity: 0;
-    transition: opacity 0.3s ease;
 }
 
-.learning-card:hover {
-    transform: translateY(-4px);
-    box-shadow:
-        0 10px 40px rgba(70, 185, 162, 0.1),
-        0 4px 16px rgba(0, 0, 0, 0.2);
-}
-
-.learning-card:hover::before {
-    opacity: 0.6;
-}
 
 .learning-icon {
     width: 48px;
@@ -775,12 +764,6 @@ caption {
     align-items: center;
     justify-content: center;
     margin-bottom: 24px;
-    transition: all 0.3s ease;
-}
-
-.learning-card:hover .learning-icon {
-    background: rgba(70, 185, 162, 0.2);
-    transform: scale(1.05);
 }
 
 .learning-card h3 {
