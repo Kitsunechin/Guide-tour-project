@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scaling Activation Without Scaling Humans - Guided Tour Case Study</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal" role="dialog" aria-labelledby="modalCaption" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close-button" aria-label="Close image modal">&times;</button>
+            <img id="modalImage" src="" alt="" tabindex="0">
+            <div id="modalCaption" class="modal-caption"></div>
+        </div>
+    </div>
+
+    <!-- Cursor Light Beam -->
+    <div class="cursor-beam" id="cursorBeam"></div>
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="skip-link sr-only">Skip to main content</a>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <main id="main-content">
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Scaling activation without scaling humans</h1>
+                    <p class="hero-subtitle">Job&Talent · Product Designer (IC Lead)</p>
+                    <p class="hero-description">Native Mobile (iOS & Android) · Discovery → Design System Documentation</p>
+                </div>
+                <div class="hero-video">
+                    <div class="ios-frame">
+                        <video controls autoplay loop muted aria-label="Product demonstration video showing the Job&Talent app interface">
+                            <source src="demo.mp4" type="video/mp4">
+                            <track kind="captions" src="demo-captions.vtt" srclang="en" label="English captions">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Challenge Section -->
+        <section class="section" aria-labelledby="challenge-heading">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2 id="challenge-heading" class="section-title">The Challenge</h2>
+            </div>
+            <div class="content">
+                <p>The J&T app was built to help frontline workers organise their schedules and clock in on time — but we had an invisible dependency baked into the product: human onboarding. On-site J&T managers were doing the heavy lifting that the app itself wasn't doing.</p>
+
+                <p>As we scaled to more locations, that dependency became a liability. Sites without dedicated on-site support showed measurably worse engagement — and the gap was wide enough to raise a strategic question: were we shipping an app, or a service that required a person to operate it?</p>
+
+                <div class="metrics-box">
+                    <h3>Baseline data — shift response rate:</h3>
+                    <div class="metrics-grid">
+                        <div class="metric-item">
+                            <div class="metric-label">Sites with J&T on-site support</div>
+                            <div class="metric-value">
+                                <span class="counter" data-target="83" aria-label="83 percent">0</span><span class="percentage">%</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-width="83"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Sites without on-site support</div>
+                            <div class="metric-value">
+                                <span class="counter" data-target="73" aria-label="73 percent">0</span><span class="percentage">%</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-width="73"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p>A 10-point gap in a metric that directly affects payroll accuracy, site operations, and client trust was the forcing function for this project.</p>
+            </div>
+        </section>
+
+        <!-- Research Section -->
+        <section class="section" aria-labelledby="research-heading">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 id="research-heading" class="section-title">Discovery & Research</h2>
+            </div>
+            <div class="content">
+                <p>Before designing anything, I ran interviews with on-site managers to understand what they were actually doing during worker onboarding. The pattern was consistent across sites: managers weren't just handing workers a phone — they were narrating the why behind each feature in the context of the worker's daily routine.</p>
+
+                <blockquote class="quote">
+                    "They don't know why they need to open the app. I show them — this is how you see your shift, this is how you clock in, this is how you get paid correctly."
+                    <cite>— On-site Manager</cite>
+                </blockquote>
+
+                <div class="research-image">
+                    <img src="research-findings.png" alt="Research findings from on-site interviews and insights" class="clickable-image" data-caption="On-site interviews and insights" />
+                    <caption>On-site interviews and insights</caption>
+                </div>
+
+                <p>The interviews revealed that the core onboarding problem wasn't discoverability — workers could find the features. The problem was motivation and meaning: workers didn't understand the connection between in-app actions and real-world outcomes (pay, schedule visibility, fewer disputes).</p>
+
+                <p>This maps directly to Fogg's Behavior Model (B = MAP): the app had sufficient Ability but lacked the Motivation signal — workers didn't know why an action mattered. On-site managers were acting as the missing Prompt. The design challenge became encoding that human context into the product itself.</p>
+            </div>
+        </section>
+
+        <!-- Role Section -->
+        <section class="section" aria-labelledby="role-heading">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 id="role-heading" class="section-title">My Role</h2>
+            </div>
+            <div class="content">
+                <p>I led end-to-end design from problem framing through to design system documentation:</p>
+
+                <ul class="role-list">
+                    <li>Stakeholder and manager interviews to map the informal onboarding behaviour we needed to replace</li>
+                    <li>Competitive analysis of guided tour patterns (tooltips, coach marks, progressive disclosure)</li>
+                    <li>Audit of existing onboarding elements — several were partially implemented and inconsistently applied across the app</li>
+                    <li>Interaction design for the contextual tooltip system, including trigger logic and sequencing</li>
+                    <li>Design system documentation so other teams could implement the component without reinventing it</li>
+                </ul>
+
+            </div>
+        </section>
+
+        <!-- Solution Section -->
+        <section class="section" aria-labelledby="solution-heading">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2 id="solution-heading" class="section-title">Solution</h2>
+            </div>
+            <div class="content">
+                <p>Rather than a single walkthrough at first launch — which suffers from poor retention due to cognitive overload at the moment of highest uncertainty — I proposed a contextual tooltip system triggered by tab navigation.</p>
+
+                <p>Research on progressive disclosure consistently shows that just-in-time information outperforms front-loaded tutorials. Presenting guidance at the moment of intended action reduces extraneous cognitive load and increases procedural retention.</p>
+
+                <div class="final-design">
+                    <img src="final-design-screens.png" alt="Final design showing contextual tooltips in action" class="clickable-image" data-caption="Final design showing contextual tooltips in action" />
+                    <caption>Final design showing contextual tooltips in action</caption>
+                </div>
+
+                <p>Each tooltip was written around the worker's outcome, not the feature's function. Instead of "tap here to confirm your shift," the copy led with consequence: understanding why clocking in on time protects your pay record. This framing shift — from UI instruction to behavioral consequence — was directly informed by what on-site managers were saying during their verbal walkthroughs.</p>
+
+                <p>I also audited existing onboarding components already in the app — coach marks, empty-state explainers, feature callouts — most of which were implemented inconsistently or not at all. The audit became the foundation for a shared design system component with documented trigger logic, so other teams could implement contextual guidance without ad-hoc solutions.</p>
+            </div>
+        </section>
+
+        <!-- Design System Component -->
+        <section class="section" aria-labelledby="design-system-heading">
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2 id="design-system-heading" class="section-title">Design System Component</h2>
+            </div>
+            <div class="content">
+                <div class="component-image">
+                    <img src="design-system-component.png" alt="Guided tour popover component documentation" class="clickable-image" data-caption="Guided tour popover component - design system documentation" />
+                    <caption>Guided tour popover component - design system documentation</caption>
+                </div>
+
+                <p>The popover component was built as a reusable design system element, complete with documentation for implementation guidelines, animation specs, and trigger logic. This ensured consistency across the app and enabled other teams to implement contextual guidance without creating one-off solutions.</p>
+            </div>
+        </section>
+
+        <!-- Impact Section -->
+        <section class="section" aria-labelledby="impact-heading">
+            <div class="section-header">
+                <span class="section-number">06</span>
+                <h2 id="impact-heading" class="section-title">Impact</h2>
+            </div>
+            <div class="content">
+                <div class="impact-visualization">
+                    <h3>Impact Metrics</h3>
+                    <div class="impact-cards">
+                        <div class="impact-card">
+                            <div class="impact-header">
+                                <h4>Shift Response Rate</h4>
+                                <span class="metric-subtitle">(no on-site support)</span>
+                            </div>
+                            <div class="before-after">
+                                <div class="before">
+                                    <span class="label">Before</span>
+                                    <div class="metric-circle">
+                                        <svg class="progress-ring" width="80" height="80">
+                                            <circle class="progress-ring-background" cx="40" cy="40" r="35"></circle>
+                                            <circle class="progress-ring-fill before-fill" cx="40" cy="40" r="35" data-progress="73"></circle>
+                                        </svg>
+                                        <div class="metric-text">
+                                            <span class="counter" data-target="73" aria-label="73 percent before improvement">0</span><span class="percentage">%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="improvement-arrow">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#46B9A2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <span class="improvement-text">+7%</span>
+                                </div>
+                                <div class="after">
+                                    <span class="label">After</span>
+                                    <div class="metric-circle">
+                                        <svg class="progress-ring" width="80" height="80">
+                                            <circle class="progress-ring-background" cx="40" cy="40" r="35"></circle>
+                                            <circle class="progress-ring-fill after-fill" cx="40" cy="40" r="35" data-progress="80"></circle>
+                                        </svg>
+                                        <div class="metric-text">
+                                            <span class="counter" data-target="80" aria-label="80 percent after improvement">0</span><span class="percentage">%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="impact-card">
+                            <div class="impact-header">
+                                <h4>Onboarding Completion</h4>
+                                <span class="metric-subtitle">end-to-end flow</span>
+                            </div>
+                            <div class="before-after">
+                                <div class="before">
+                                    <span class="label">Before</span>
+                                    <div class="metric-circle">
+                                        <svg class="progress-ring" width="80" height="80">
+                                            <circle class="progress-ring-background" cx="40" cy="40" r="35"></circle>
+                                            <circle class="progress-ring-fill before-fill" cx="40" cy="40" r="35" data-progress="60"></circle>
+                                        </svg>
+                                        <div class="metric-text">
+                                            <span class="counter" data-target="60" aria-label="60 percent before improvement">0</span><span class="percentage">%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="improvement-arrow">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#46B9A2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <span class="improvement-text">+30%</span>
+                                </div>
+                                <div class="after">
+                                    <span class="label">After</span>
+                                    <div class="metric-circle">
+                                        <svg class="progress-ring" width="80" height="80">
+                                            <circle class="progress-ring-background" cx="40" cy="40" r="35"></circle>
+                                            <circle class="progress-ring-fill after-fill" cx="40" cy="40" r="35" data-progress="90"></circle>
+                                        </svg>
+                                        <div class="metric-text">
+                                            <span class="counter" data-target="90" aria-label="90 percent after improvement">0</span><span class="percentage">%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p>The gap between supported and unsupported sites narrowed significantly. Sites that previously depended on on-site managers to drive adoption now had a product-native mechanism doing equivalent work — at scale, without headcount.</p>
+
+                <p>The design system component gave other product teams a reusable, documented pattern for contextual education, reducing one-off implementations and improving consistency across the app.</p>
+            </div>
+        </section>
+
+        <!-- Learnings Section -->
+        <section class="section" aria-labelledby="learnings-heading">
+            <div class="section-header">
+                <span class="section-number">07</span>
+                <h2 id="learnings-heading" class="section-title">Learnings</h2>
+            </div>
+            <div class="content">
+                <div class="learnings">
+                    <div class="learning-item">
+                        <h3>The human workaround is the design brief</h3>
+                        <p>When users rely on a person to explain your product, that person is doing the UX work your product hasn't done yet. Interviewing on-site managers didn't just validate a problem — it gave us the script for the solution.</p>
+                    </div>
+
+                    <div class="learning-item">
+                        <h3>Motivation before mechanics</h3>
+                        <p>Workers didn't need better instructions. They needed to understand the stake — why a feature mattered to their pay and schedule. Framing onboarding around consequences rather than UI actions was the core insight that moved the metric.</p>
+                    </div>
+
+                    <div class="learning-item">
+                        <h3>Consistency is a design deliverable</h3>
+                        <p>Building the component into the design system meant the work compounded. Other teams could implement contextual guidance without reinventing the pattern, reducing inconsistency and future debt.</p>
+                    </div>
+
+                    <div class="learning-item">
+                        <h3>Operational data makes the design case</h3>
+                        <p>The 10-point engagement gap between supported and unsupported sites wasn't just a product problem — it was a business argument. Quantifying the cost of the status quo is what gave the project priority on a roadmap driven by client-facing features.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </main>
+    </div>
+
+    <script>
+        // Image modal functionality
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const modalCaption = document.getElementById('modalCaption');
+        const closeBtn = document.querySelector('.close-button');
+        const clickableImages = document.querySelectorAll('.clickable-image');
+
+        // Add click event to all clickable images
+        clickableImages.forEach(img => {
+            // Add tabindex for keyboard accessibility
+            img.setAttribute('tabindex', '0');
+            img.setAttribute('role', 'button');
+
+            function openModal() {
+                modal.style.display = 'flex';
+                modal.setAttribute('aria-hidden', 'false');
+                modalImg.src = img.src;
+                modalImg.alt = img.alt;
+                modalCaption.textContent = img.dataset.caption || img.alt;
+                document.body.style.overflow = 'hidden';
+                modalImg.focus();
+            }
+
+            img.addEventListener('click', openModal);
+
+            // Add keyboard support
+            img.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openModal();
+                }
+            });
+
+            // Add cursor pointer and hover effect
+            img.style.cursor = 'pointer';
+        });
+
+        // Close modal when clicking the close button
+        closeBtn.addEventListener('click', closeModal);
+
+        // Close modal when clicking outside the image
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.style.display === 'flex') {
+                closeModal();
+            }
+        });
+
+        function closeModal() {
+            modal.style.display = 'none';
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Add hover effect for clickable images
+        clickableImages.forEach(img => {
+            img.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.02)';
+                this.style.transition = 'transform 0.3s ease';
+            });
+
+            img.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+
+        // Animated Counter Function
+        function animateCounter(element, target, duration = 2000) {
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current);
+            }, 16);
+        }
+
+        // Progress Bar Animation
+        function animateProgressBar(element, targetWidth) {
+            setTimeout(() => {
+                element.style.width = targetWidth + '%';
+            }, 500);
+        }
+
+        // Circular Progress Animation
+        function animateCircularProgress(element, targetProgress) {
+            const circumference = 2 * Math.PI * 35; // radius = 35
+            const offset = circumference - (targetProgress / 100) * circumference;
+
+            setTimeout(() => {
+                element.style.strokeDashoffset = offset;
+            }, 800);
+        }
+
+        // Intersection Observer for scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.3,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const element = entry.target;
+
+                    // Animate counters
+                    const counters = element.querySelectorAll('.counter');
+                    counters.forEach(counter => {
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        animateCounter(counter, target);
+                    });
+
+                    // Animate progress bars
+                    const progressBars = element.querySelectorAll('.progress-fill');
+                    progressBars.forEach(bar => {
+                        const width = parseInt(bar.getAttribute('data-width'));
+                        animateProgressBar(bar, width);
+                    });
+
+                    // Animate circular progress
+                    const circularProgress = element.querySelectorAll('.progress-ring-fill');
+                    circularProgress.forEach(circle => {
+                        const progress = parseInt(circle.getAttribute('data-progress'));
+                        animateCircularProgress(circle, progress);
+                    });
+
+                    // Add entrance animation
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe animated elements
+        document.querySelectorAll('.impact-visualization, .metrics-box').forEach(el => {
+            // Set initial state
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+
+            observer.observe(el);
+        });
+
+        // Floating animation removed from hero video
+
+        // Add sparkle effect to metrics
+        function createSparkle(element) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.cssText = `
+                position: absolute;
+                width: 4px;
+                height: 4px;
+                background: #46B9A2;
+                border-radius: 50%;
+                pointer-events: none;
+                animation: sparkleFloat 2s ease-out forwards;
+            `;
+
+            const rect = element.getBoundingClientRect();
+            sparkle.style.left = Math.random() * rect.width + 'px';
+            sparkle.style.top = Math.random() * rect.height + 'px';
+
+            element.appendChild(sparkle);
+
+            setTimeout(() => sparkle.remove(), 2000);
+        }
+
+        // Add sparkle keyframes
+        const sparkleStyle = document.createElement('style');
+        sparkleStyle.textContent = `
+            @keyframes sparkleFloat {
+                0% {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                }
+                100% {
+                    opacity: 0;
+                    transform: translateY(-20px) scale(0);
+                }
+            }
+        `;
+        document.head.appendChild(sparkleStyle);
+
+        // Create sparkles on metrics hover
+        document.querySelectorAll('.metric-item, .impact-card').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                for (let i = 0; i < 3; i++) {
+                    setTimeout(() => createSparkle(item), i * 200);
+                }
+            });
+        });
+
+        // Stagger text animation function
+        function createStaggerEffect(element, text, baseDelay = 100) {
+            // Clear existing content
+            element.innerHTML = '';
+
+            // Split text into characters and wrap each in a span
+            text.split('').forEach((char, index) => {
+                const span = document.createElement('span');
+                span.classList.add('stagger-char');
+                span.textContent = char === ' ' ? '\u00A0' : char; // Non-breaking space
+
+                // Set animation delay for stagger effect
+                span.style.animationDelay = `${index * baseDelay}ms`;
+
+                element.appendChild(span);
+            });
+        }
+
+        // Initialize section titles with empty content and store original text
+        document.querySelectorAll('.section-title').forEach(title => {
+            const originalText = title.textContent;
+            title.setAttribute('data-original-text', originalText);
+            title.textContent = ''; // Start with empty header
+        });
+
+        // Stagger animation observer for headers
+        const staggerObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const element = entry.target;
+                    const originalText = element.getAttribute('data-original-text');
+
+                    setTimeout(() => {
+                        createStaggerEffect(element, originalText, 50);
+                    }, 200);
+
+                    staggerObserver.unobserve(element);
+                }
+            });
+        }, {
+            threshold: 0.3,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        // Observe section titles for stagger animation
+        document.querySelectorAll('.section-title').forEach(title => {
+            staggerObserver.observe(title);
+        });
+
+        // Grid spotlight and cursor beam follow mouse cursor
+        let mouseX = 0;
+        let mouseY = 0;
+        const cursorBeam = document.getElementById('cursorBeam');
+
+        function updateGridMask() {
+            const x = (mouseX / window.innerWidth) * 100;
+            const y = (mouseY / window.innerHeight) * 100;
+
+            document.body.style.setProperty('--mouse-x', `${x}%`);
+            document.body.style.setProperty('--mouse-y', `${y}%`);
+        }
+
+        function updateCursorBeam() {
+            if (cursorBeam) {
+                cursorBeam.style.left = `${mouseX}px`;
+                cursorBeam.style.top = `${mouseY}px`;
+                cursorBeam.style.opacity = '1';
+            }
+        }
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            updateGridMask();
+            updateCursorBeam();
+        });
+
+        document.addEventListener('mouseenter', () => {
+            if (cursorBeam) {
+                cursorBeam.style.opacity = '1';
+            }
+        });
+
+        document.addEventListener('mouseleave', () => {
+            if (cursorBeam) {
+                cursorBeam.style.opacity = '0';
+            }
+        });
+
+        // Initialize with center position
+        mouseX = window.innerWidth / 2;
+        mouseY = window.innerHeight / 2;
+        updateGridMask();
+        updateCursorBeam();
+    </script>
+</body>
+</html>
